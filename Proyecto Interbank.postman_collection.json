@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "1e404218-dfb2-49ac-a7b0-b6c5437095a9",
+		"name": "Proyecto Interbank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15989023"
+	},
+	"item": [
+		{
+			"name": "1.-Crear Roles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{       \"idRole\":1,\r\n        \"nameRole\": \"Admin\",\r\n        \"enabledRole\": true\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/roles",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.-Crear Usuarios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idUser\": 1,\r\n  \"role\": {\r\n    \"idRole\": 1,\r\n    \"nameRole\": \"Admin\",\r\n    \"enabledRole\": true\r\n  },\r\n  \"username\": \"Anthony\",\r\n  \"password\": \"Holt12345678\",\r\n  \"enabled\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.-Autenticacion y Generar token de acceso",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Anthony\",\r\n    \"password\":\"Holt12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.-Crear Cliente",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiQWRtaW4iLCJ0ZXN0IjoidmFsdWUtdGVzdCIsInN1YiI6IkFudGhvbnkiLCJpYXQiOjE3MzE0NTQ4MDUsImV4cCI6MTczMTQ3MjgwNX0.DhSPhtlfFnZoXAXA1ecIeAqmY7-VZ2RXwjI7H60nKHyBipNzvnUaeAmopaVqPu4L",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiQWRtaW4iLCJ0ZXN0IjoidmFsdWUtdGVzdCIsInN1YiI6IkFudGhvbnkiLCJpYXQiOjE3MzE0NTQ1NjMsImV4cCI6MTczMTQ3MjU2M30.xEvl2uoyQSHEacejZ2euhO1_W72CVAQ0LmBAv3BpkvKRrYgSey_7jEMTI9wa2swA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombres\": \"Juan\",\r\n  \"apellidos\": \"Pérez\",\r\n  \"tipoDocumento\": \"DNI\",\r\n  \"numeroDocumento\": \"12345678\",\r\n  \"codigoUnico\": \"Holt12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.-Crear Producto Financiero con Cliente",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiQWRtaW4iLCJ0ZXN0IjoidmFsdWUtdGVzdCIsInN1YiI6IkFudGhvbnkiLCJpYXQiOjE3MzE0NTQ4MDUsImV4cCI6MTczMTQ3MjgwNX0.DhSPhtlfFnZoXAXA1ecIeAqmY7-VZ2RXwjI7H60nKHyBipNzvnUaeAmopaVqPu4L",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tipoProducto\": \"Cuenta de ahorro\",\r\n  \"nombre\": \"Ahorro Básico\",\r\n  \"saldo\": 500.75\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/producto-financiero/cliente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"producto-financiero",
+						"cliente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

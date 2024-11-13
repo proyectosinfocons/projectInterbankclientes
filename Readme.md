@@ -14,6 +14,7 @@ Creación de imagen docker
 Creación de contenedor con la imagen construida
 * sudo docker run -d -p 9090:8080 --name bancocontainer banco:1.0
 
+O
 
 Ejecutar por maven
 

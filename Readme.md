@@ -27,7 +27,8 @@ Ejecutar el segundo comando
 
 ### Pasos para ejecutar en el postman
 Antes de ejecutar se tiene que crear la carpeta llama New Api en el disco C, y luego importar el json Proyecto Interbank.postman_collection.json en el postman.
-
+Nota:
+Ejecutar por los numeros de orden como estan en el postman.
 1.- Ejecutar el controller de Roles y luego crear.
 
 

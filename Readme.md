@@ -14,6 +14,14 @@ Creación de imagen docker
 Creación de contenedor con la imagen construida
 * sudo docker run -d -p 9090:8080 --name bancocontainer banco:1.0
 
+
+Ejecutar por maven
+
+Ejecutar el primer comando
+* mvn clean install
+
+Ejecutar el segundo comando
+* mvn spring-boot:run
 ---
 
 ### Pasos para ejecutar en el postman

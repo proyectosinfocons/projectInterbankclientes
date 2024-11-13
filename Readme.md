@@ -4,7 +4,7 @@
 
 Plugins que deben estar instalados en su IDE :
 * [Lombok](http://projectlombok.org/) - *Libreria de Bytecode que genera automaticamente los Getters y Setters*.
-* Java 17
+* Java 17 y la base de datos h2.
 ---
 Ejecutar DockerFile - Ambiente Linux
 
